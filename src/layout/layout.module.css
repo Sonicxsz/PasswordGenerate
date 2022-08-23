@@ -1,0 +1,25 @@
+
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-template-areas: 
+        'leftImage generator'
+        
+    ;
+}
+
+.leftImage{
+ background-color: green;
+ grid-area: leftImage;
+
+
+}
+
+.generator{
+    background-color: red;
+    grid-area: generator;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
