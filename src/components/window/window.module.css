@@ -1,15 +1,23 @@
 .wrapper{
-    width: 600px;
-    height: 400px;
-    background-color: rgb(24, 24, 24);
+    width: 500px;
+    height: 280px;
+    background-color: rgba(169, 73, 186, 0.53);
     display: grid;
     grid-template-columns: 1fr;
     align-content: center;
     justify-content: center;
     gap: 10px;
     border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 0px 4px 5px rgb(22, 22, 22);
+    box-shadow: 6px 4px 10px rgb(22, 22, 22);
+    margin-left: 2.5rem;
+}
+.text{
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(207, 57, 174);
+    top: 10%;
+    left: 33%;
 }
 .buttons{
     display: flex;
@@ -18,7 +26,9 @@
     justify-content: space-between;
 }
 .checkboxWrapper{
-    width: 74%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     margin: 0 auto;
     margin-top: 10px;
     
@@ -26,29 +36,63 @@
 .password{
     width: 80%;
     height: 50px;
-    background-color: rgb(227, 227, 227);
+    background-color: rgb(253, 248, 248);
     margin: 0 auto;
     border-radius: 10px;
-    border: 2px solid rgb(164, 163, 163);
+    border: 2px solid rgb(207, 57, 174);
     padding: 10px 10px;
     box-sizing: border-box;
-    font-size: 23px;
+    font-size: 20px;
     text-align: center;
+    font-family: 'Silkscreen', cursive;
 }
 
 .passwordSize{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .settings{
     width: 80%;
     height: 110px;
-    background-color: green;
-    background-color: rgb(227, 227, 227);
+    background-color: rgb(253, 248, 248);
     margin: 0 auto;
     border-radius: 10px;
-    border: 2px solid rgb(164, 163, 163);
+    border: 2px solid rgb(207, 57, 174);
     padding: 10px 10px;
     box-sizing: border-box;
 
+}
+
+
+@media (max-width: 762px) {
+    .wrapper{
+        width: 500px;
+        height: 280px;
+        background-color: rgba(169, 73, 186, 0.53);
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 10px;
+        box-shadow: 6px 4px 10px rgb(22, 22, 22);
+        margin-left: 2.5rem;
+    }
+    .text{
+       display: none;
+    }
+
+    .password{
+        width: 80%;
+        height: 50px;
+        background-color: rgb(253, 248, 248);
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 2px solid rgb(207, 57, 174);
+        padding: 10px 10px;
+        box-sizing: border-box;
+        font-size: 13px;
+        text-align: center;
+        font-family: 'Silkscreen', cursive;
+    }
 }

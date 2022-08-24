@@ -1,0 +1,13 @@
+.modal{
+    width: 300px;
+    height: 100px;
+    background-color: blue;
+    font-size: 20px;
+    position: absolute;
+    top: 42%;
+    left: 25%;
+    z-index: 999;
+    text-align: center;
+    font-family: 'Silkscreen', cursive;
+    line-height: 100px;
+}

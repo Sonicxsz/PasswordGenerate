@@ -2,27 +2,35 @@
 
 .wrapper{
     display: grid;
-    grid-template-columns: 600px 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         'leftImage generator'
         
     ;
+    
 }
 
+
+
 .leftImage{
- background-color: rgb(24, 24, 24);
+ background-color: rgba(44, 20, 50, 0.667);
  grid-area: leftImage;
  display: flex;
  align-items:center;
+ justify-content: center;
+ -webkit-backdrop-filter: blur(10px);
+ backdrop-filter: blur(10px);
 
 }
 
 .generator{
-    background-color: red;
+    background-color: rgba(158, 72, 72, 0.256);
     grid-area: generator;
     height: 100vh;
     display: flex;
     align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .imageBlock{
@@ -30,8 +38,66 @@
     height: 500px;
     font-size: 50px;
     background-color: unset;
-    margin-left: 50px;
     display: flex;
-    justify-content: center;
     align-items:center;
+    justify-content: center;
+}
+
+
+.text{
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(207, 57, 174);
+    top: 10%;
+}
+
+
+@media (max-width: 762px) {
+    .wrapper{
+     grid-template-columns: 1fr;
+     grid-template-areas: 
+         'generator'
+         
+     ;
+     overflow: scroll;
+     justify-content: center;
+    }
+ 
+ .text{
+     display: none;
+     position: absolute;
+     font-size: 30px;
+     text-align: center;
+     color: rgb(207, 57, 174);
+     top: 10%;
+ }
+ 
+ 
+    .generator{
+     background-color: unset;
+     grid-area: generator;
+     display: flex;
+     align-items: center;
+ }
+ 
+ .imageBlock{
+     display: flex;
+     display: none;
+     width: 300px;
+     height: 200px;
+     font-size: 50px;
+     background-color: unset;
+     align-items:center;
+     justify-content: center;
+ }
+
+ .leftImage{
+    background-color: unset;
+    grid-area: leftImage;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+   }
+
 }

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import cn from 'classnames'
 import { FormControlLabel, Checkbox} from '@mui/material'
 import generate, {DownloadJSON} from '../../utils/generate'
+import Modal from '../modalNotice/modal'
 
 interface windowProps{
     setLevel: (num:number) => void
@@ -18,10 +19,16 @@ function Window({setLevel}:windowProps) {
     const [symbol, setSymbol] = useState(false);
     const [numbers, setNumbers] = useState(false);
     const [text, setText] = useState('');
-    const [generated, setGenerated] = useState(false)
+    const [generated, setGenerated] = useState(false);
+    const [showNotice, setShowNotice] = useState(false)
   
     
-    
+    const showAndClose = () => {
+        setShowNotice(true);
+        setTimeout(() => {
+            setShowNotice(false)
+        }, 1000)
+    }
 
     useEffect(() =>{
         let password = generate(range, upperCase, numbers, symbol)
@@ -37,17 +44,22 @@ function Window({setLevel}:windowProps) {
    
 
   return (
+    <>
+    {showNotice && <Modal />}
+    <span className={styles.text}>Generator</span>
     <div className={styles.wrapper} >
-        <div className={cn(styles.password,{
+        <input value={text} 
+            onChange={(e) => setText(e.target.value)}
+        className={cn(styles.password,{
             [styles.passwordSize]: range > 30
-        })}>{text}</div>
+        })} />
         <div className={styles.settings}>
             <Range range={range} setRange={setRange}/> 
            
             <div className={styles.checkboxWrapper}>
 
             <FormControlLabel control={<Checkbox color='secondary' onClick={() =>{ setNumbers(!numbers) }}  />} label="Number" />
-            <FormControlLabel   control={<Checkbox color='secondary' onClick={() =>{ setUpperCase(!upperCase)}}  />} label="UpperCase" />
+            <FormControlLabel   control={<Checkbox color='secondary' onClick={() =>{ setUpperCase(!upperCase)}}  />} label="Upper" />
             <FormControlLabel   control={<Checkbox color='secondary' onClick={() =>{ setSymbol(!symbol)}}  />} label="Symbol" />
             </div>
             
@@ -56,12 +68,19 @@ function Window({setLevel}:windowProps) {
             <Button 
             onClick={() =>{
                 DownloadJSON(text)
-            }}>Сохранить</Button>
+            }}>save</Button>
             <Button
                 onClick={() =>{setGenerated(!generated)}}
-            >Сгенерировать</Button>
+            >generate</Button>
+            <Button
+                onClick={() => 
+                    {navigator.clipboard.writeText(text)
+                        showAndClose()
+                    }}
+            >Copy</Button>
         </div>
     </div>
+    </>
   )
 }
 

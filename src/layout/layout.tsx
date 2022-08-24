@@ -4,7 +4,7 @@ import { layoutProps } from './layout.props';
 import { motion } from "framer-motion";
 function Layout({level, children}:layoutProps) {
    
-   const defendLevel = ['https://sun9-34.userapi.com/impg/MwbWTjlS8v07tgqIHgqD5oLQeMSZoRHO98j_2Q/uOrKC3gDR9Q.jpg?size=442x328&quality=96&sign=5a6a23ef6dfb13f9c1670a38c1486c6a&type=album',
+   const defendLevel = ['https://sun9-88.userapi.com/impg/erZjP-VYRBjgJtBz28vS48e1s2M7WVr6t-bjbw/9e9rtzNTe5c.jpg?size=438x325&quality=95&sign=c75d79936c73460d8dbb6172b1cf882f&type=album',
    'https://sun9-57.userapi.com/impg/JQ-xjm3LspyhcWhDvKrZg8VpsLFRJvuhHh7YgQ/kKIjL-oncTE.jpg?size=510x382&quality=95&sign=480f64ff6fba2fc242759a49ac680387&type=album', 
    'https://sun9-64.userapi.com/impg/Ve2Dx1jJbzoldB3B7P0InpG06b-aSWTcbICwSg/pS9rUNN4rw4.jpg?size=514x386&quality=95&sign=050977270285b67a9890677f4e878508&type=album', 
    'https://sun9-56.userapi.com/impg/EYHdc5CkoAvaocvfgyWLKnT9GXx13PZH5hgvDg/qpSD7CDDo40.jpg?size=509x509&quality=95&sign=e10c55a8b09711a0796c8b875af4a110&type=album', 
@@ -13,19 +13,24 @@ function Layout({level, children}:layoutProps) {
   return (
     <div className={styles.wrapper}>
         <div className={styles.leftImage}>
+        <span className={styles.text}>complexity illustration</span>
             {defendLevel.map((i, ind) => {
                 if(ind === level -1){
                     return <motion.div
-            
+                    
                     initial={{x: -200}} 
                     animate={{x: 0}}
                     
-                    className={styles.imageBlock}><img id='image' src={defendLevel[level -1]} alt="" /></motion.div>
+                    className={styles.imageBlock}>
+                        
+                        <img id='image' src={defendLevel[level -1]} alt="" /></motion.div>
                 }
             })}
-        
+            
         </div>
-        <div className={styles.generator}>{children}</div>
+        <div className={styles.generator}>
+            
+            {children}</div>
     </div>
   )
 }
