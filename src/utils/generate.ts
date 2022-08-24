@@ -1,6 +1,6 @@
 
 
-export default function generate(length = 6, upper = false, number = false, symbol = false){
+export default function generate(length = 6, upper = false, number = false, symbol = false):string{
 
 
         const Letters = ['a','b','c','d','e','f','g','h','i','g','k','m','n','q','u','y','o','p','t','r','w','s','j','l','z','x','c','v','w']
@@ -28,9 +28,22 @@ export default function generate(length = 6, upper = false, number = false, symb
               
         }
         
-        return password
+        return password.join('')
     
        
     
     
 }
+
+
+export const DownloadJSON = (Data:string) => {
+        const dataStr =
+          'data:application/json;charset=utf-8,' +
+          encodeURIComponent(JSON.stringify({password: Data}));
+        const download = document.createElement('a');
+        download.setAttribute('href', dataStr);
+        download.setAttribute('download', 'Password' + '.txt');
+        document.body.appendChild(download);
+        download.click();
+        download.remove();
+      };
